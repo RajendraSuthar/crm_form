@@ -371,23 +371,45 @@
         .steps-section {
             padding: 80px 0;
             text-align: center;
+            background: white;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .section-title h2 {
-            font-size: 36px;
-            color: #0284c7;
-            /* Lighter blue for title */
-            margin-bottom: 10px;
+            font-family: 'Merriweather', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #1a73e8;
+            /* Blue specific to image */
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Underline decoration for title */
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 4px;
+            background: #fcd34d;
+            /* Yellowish underscore */
+            border-radius: 2px;
+            opacity: 0.5;
         }
 
         .section-title p {
-            color: #64748b;
-            font-size: 14px;
+            color: #6b7280;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
         }
 
         .steps-wrapper {
@@ -395,62 +417,96 @@
             justify-content: space-between;
             align-items: center;
             text-align: left;
+            max-width: 1000px;
+            /* Constrain width to keep it looking good */
+            margin: 0 auto;
         }
 
         .steps-list {
             flex: 1;
+            padding-right: 40px;
         }
 
         .step-item {
             display: flex;
-            align-items: center;
-            margin-bottom: 30px;
+            align-items: flex-start;
+            margin-bottom: 0;
             position: relative;
+            height: 100px;
+            /* Fixed height to create uniform spacing like image */
         }
 
-        .step-item:not(:last-child)::after {
+        /* Connecting vertical line */
+        .step-item:not(:last-child)::before {
             content: '';
             position: absolute;
-            left: 20px;
-            /* Center of circle (40/2) */
-            top: 40px;
+            left: 24px;
+            /* Center of 48px circle */
+            top: 48px;
             bottom: -20px;
+            /* Connect to next */
             width: 2px;
-            background: #e2e8f0;
+            background: #60a5fa;
+            /* Light blue line */
             z-index: 0;
         }
 
         .step-number {
-            width: 40px;
-            height: 40px;
-            background: #1e3a8a;
+            width: 48px;
+            height: 48px;
+            background: #1e40af;
+            /* Dark Blue Circle */
             color: white;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 18px;
-            margin-right: 20px;
+            margin-right: 25px;
             z-index: 1;
             flex-shrink: 0;
+            position: relative;
+        }
+
+        .step-content {
+            flex: 1;
+            padding-top: 10px;
+            /* Align text with circle */
+            border-bottom: 1px solid #e5e7eb;
+            /* Line below text */
+            padding-bottom: 10px;
+        }
+
+        /* Remove border for last item if desired, but image shows lines for all likely */
+        .step-item:last-child .step-content {
+            border-bottom: 1px solid #e5e7eb;
         }
 
         .step-content h4 {
             font-family: 'Poppins', sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            color: #334155;
+            font-size: 18px;
+            color: #6b7280;
+            /* Greyish text */
+            font-weight: 400;
+        }
+
+        .step-content h4 strong {
+            font-weight: 700;
+            color: #6b7280;
+            font-style: italic;
+            margin-right: 5px;
         }
 
         .steps-image {
             flex: 1;
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 
         .steps-image img {
-            max-width: 80%;
+            max-width: 100%;
             height: auto;
         }
 
@@ -937,7 +993,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Admission Steps</h2>
-                <p>Just catch your educator journey simple steps to your bright future.</p>
+                <p>Let’s begin your education journey. Simple steps for your bright future.</p>
             </div>
 
             <div class="steps-wrapper">
@@ -945,25 +1001,25 @@
                     <div class="step-item">
                         <div class="step-number">1</div>
                         <div class="step-content">
-                            <h4>Step 1: Fill the Form & Register Yourself</h4>
+                            <h4><strong>Step 1:</strong> Fill the form & Register Yourself</h4>
                         </div>
                     </div>
                     <div class="step-item">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <h4>Step 2: Verify Email</h4>
+                            <h4><strong>Step 2:</strong> Verify Email</h4>
                         </div>
                     </div>
                     <div class="step-item">
                         <div class="step-number">3</div>
                         <div class="step-content">
-                            <h4>Step 3: Fill Application Form Online</h4>
+                            <h4><strong>Step 3:</strong> Fill Application Form Online</h4>
                         </div>
                     </div>
                     <div class="step-item">
                         <div class="step-number">4</div>
                         <div class="step-content">
-                            <h4>Step 4: Pay Application Fee & Submit Online</h4>
+                            <h4><strong>Step 4:</strong> Pay Application Fee & Submit Online</h4>
                         </div>
                     </div>
                 </div>
