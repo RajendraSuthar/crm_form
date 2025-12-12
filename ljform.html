@@ -114,9 +114,9 @@
         /* --- Hero Section --- */
         .hero {
             position: relative;
-            background: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
-            padding: 80px 0;
-            min-height: 700px;
+            background: url('assets/images/lj_section_first_cover.png') no-repeat center center/cover;
+            padding: 40px 0;
+            min-height: 800px;
             display: flex;
             align-items: center;
         }
@@ -128,8 +128,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(30, 58, 138, 0.6);
-            /* Blue overlay */
+            background: rgba(0, 0, 0, 0.2);
+            /* Slight darken to make text pop */
         }
 
         .hero-content {
@@ -137,120 +137,233 @@
             z-index: 2;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
+            /* Center vertically */
+            width: 100%;
         }
 
-        .hero-text {
+        /* Left Side Content */
+        .hero-left-col {
+            width: 55%;
+            padding-right: 20px;
+        }
+
+        .hero-logo-container {
+            background: rgba(255, 255, 255, 0.9);
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-logo-container img {
+            height: 50px;
+        }
+
+        /* User specified typography */
+        .hero-headline {
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-headline-regular {
+            font-weight: 400;
+            /* Regular */
+            font-size: 71px;
+            line-height: 95px;
+            display: block;
+        }
+
+        .hero-headline-bold {
+            font-weight: 700;
+            /* Bold */
+            font-size: 68px;
+            line-height: 95px;
+            display: block;
+        }
+
+        .hero-contact-info {
             color: white;
-            width: 50%;
+            font-size: 16px;
             margin-top: 40px;
         }
 
-        .hero-text h1 {
-            color: white;
-            font-size: 48px;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-text p {
-            font-size: 14px;
-            opacity: 0.9;
-            margin-bottom: 5px;
-        }
-
-        .badge-office {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 5px 10px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-bottom: 10px;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Registration Form */
-        .reg-form {
-            background: linear-gradient(180deg, #67e8f9 0%, #3b82f6 100%);
-            width: 400px;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            color: white;
-        }
-
-        .reg-form h3 {
-            font-family: 'Merriweather', serif;
-            color: white;
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-
-        .reg-form p {
-            font-size: 12px;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-        .form-group {
+        .hero-contact-row {
+            display: flex;
+            align-items: flex-start;
+            /* Align top for address */
+            gap: 15px;
             margin-bottom: 15px;
         }
 
-        .form-input {
-            width: 100%;
-            padding: 12px 15px;
-            border: none;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.2);
+        .hero-contact-row i {
+            margin-top: 4px;
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        .hero-contact-row a {
             color: white;
-            font-size: 14px;
-            outline: none;
-            transition: background 0.3s;
+            text-decoration: none;
         }
 
-        .form-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+        /* Registration Form Redesign */
+        .reg-form-container {
+            width: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            background: white;
         }
 
-        .form-input:focus {
-            background: rgba(255, 255, 255, 0.3);
+        .reg-form-header {
+            background: #107aca;
+            /* Blue like in image */
+            color: white;
+            padding: 20px;
+            text-align: center;
         }
 
-        .checkbox-group {
+        .reg-form-header h3 {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .reg-form-body {
+            padding: 25px;
+            background: white;
+        }
+
+        .reg-title-row {
             display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 12px;
+            justify-content: space-between;
+            align-items: baseline;
             margin-bottom: 20px;
         }
 
-        .checkbox-group input {
-            margin-top: 3px;
+        .reg-title-row h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #000;
         }
 
-        .btn-submit {
+        .reg-title-row a {
+            font-size: 12px;
+            color: #107aca;
+            text-decoration: none;
+        }
+
+        .form-group-underlined {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .form-input-underlined {
+            width: 100%;
+            padding: 10px 0;
+            border: none;
+            border-bottom: 1px solid #e2e8f0;
+            border-radius: 0;
+            background: transparent;
+            font-size: 14px;
+            color: #334155;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-input-underlined:focus {
+            border-bottom-color: #107aca;
+        }
+
+        .form-input-underlined::placeholder {
+            color: #bfbfbf;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-check-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+            font-size: 12px;
+            color: #107aca;
+        }
+
+        .btn-submit-new {
             width: 100%;
             padding: 12px;
-            background: white;
-            color: #2563eb;
-            font-weight: 700;
+            background: #107aca;
+            color: white;
+            font-weight: 600;
             border: none;
-            border-radius: 50px;
+            border-radius: 8px;
+            /* Rounded rctangle */
             cursor: pointer;
             font-size: 16px;
-            text-transform: uppercase;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
-            transition: transform 0.2s;
+            transition: background 0.2s;
         }
 
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        .btn-submit-new:hover {
+            background: #0c69ad;
+        }
+
+        /* Adjust responsive for massive font */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-left-col {
+                width: 100%;
+                text-align: center;
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .hero-logo-container {
+                margin: 0 auto 30px;
+            }
+
+            .hero-headline-regular,
+            .hero-headline-bold {
+                font-size: 48px;
+                /* Scale down for tablet */
+                line-height: 1.2;
+            }
+
+            .hero-contact-row {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero-headline-regular,
+            .hero-headline-bold {
+                font-size: 36px;
+                /* Scale down for mobile */
+            }
+
+            .reg-form-container {
+                width: 100%;
+            }
         }
 
         /* --- Steps Section --- */
@@ -432,7 +545,7 @@
 
         .facilities-card {
             background: linear-gradient(rgba(30, 58, 138, 0.9), rgba(30, 58, 138, 0.9)),
-                url('https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2086&auto=format&fit=crop');
+                url('assets/images/section_four.png');
             background-size: cover;
             background-position: center;
             border-radius: 30px;
@@ -703,9 +816,7 @@
         <div class="container">
             <div class="top-bar-nav">
                 <div class="logo">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2997/2997300.png" alt="Logo">
-                    <!-- Placeholder Icon -->
-                    LJ University
+                    <img src="assets/images/lj_logo.png" alt="Logo">
                 </div>
                 <div class="nav-links">
                     <a href="#"><i class="fas fa-home"></i> Home</a>
@@ -719,44 +830,103 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-            <div class="hero-text">
-                <span class="badge-office"><i class="fas fa-map-marker-alt"></i> Corporate Office</span>
-                <h1>Give your Career,<br>What it Deserves.</h1>
-                <p>LJ Campus, LJ College Road,</p>
-                <p>Off. S.G. Road, Ahmedabad - 382210</p>
-                <p>Gujarat, INDIA</p>
+            <!-- Left Side: Logo & Text -->
+            <div class="hero-left-col">
+                <div class="hero-logo-container">
+                    <img src="assets/images/lj_logo.png" alt="LJ University">
+                </div>
+
+                <div class="hero-headline">
+                    <span class="hero-headline-regular">Give your Career,</span>
+                    <span class="hero-headline-bold">What it Deserves.</span>
+                </div>
+
+                <div class="hero-contact-info">
+                    <div class="hero-contact-row">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Corporate Office</strong><br>
+                            310, Circle P Building, Prahaladnagar,<br>
+                            Ahmedabad -380051,<br>
+                            Gujarat, India
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Registration Form -->
-            <div class="reg-form">
-                <h3>Registration Form</h3>
-                <p>Enquire Now</p>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control form-input" placeholder="Enter Name *" required>
+            <!-- Right Side: Registration Form -->
+            <div class="reg-form-container">
+                <div class="reg-form-header">
+                    <h3>Applications Open Now !</h3>
+                </div>
+                <div class="reg-form-body">
+                    <div class="reg-title-row">
+                        <h4>Registration Form</h4>
+                        <a href="#">Already Registered? Login</a>
                     </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control form-input" placeholder="Enter Email Address *"
-                            required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" class="form-control form-input" placeholder="Enter Mobile No. *" required>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control form-input" style="color: rgba(255,255,255,0.7);">
-                            <option>Select City *</option>
-                            <option>Ahmedabad</option>
-                            <option>Surat</option>
-                            <option>Vadodara</option>
-                        </select>
-                    </div>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="agree" required>
-                        <label for="agree">I agree to receive information regarding my submitted enquiry on LJ
-                            University</label>
-                    </div>
-                    <button type="submit" class="btn-submit">Submit Now <i class="fas fa-paper-plane"></i></button>
-                </form>
+
+                    <form>
+                        <div class="form-group-underlined">
+                            <input type="text" class="form-input-underlined" placeholder="Enter Name" required>
+                        </div>
+                        <div class="form-group-underlined">
+                            <input type="email" class="form-input-underlined" placeholder="Enter E-mail Address"
+                                required>
+                        </div>
+                        <div class="form-group-underlined">
+                            <input type="tel" class="form-input-underlined" placeholder="Enter Mobile Number" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group-underlined" style="flex:1;">
+                                <select class="form-input-underlined">
+                                    <option>Select State</option>
+                                    <option>Gujarat</option>
+                                    <option>Maharashtra</option>
+                                </select>
+                            </div>
+                            <div class="form-group-underlined" style="flex:1;">
+                                <select class="form-input-underlined">
+                                    <option>Select City</option>
+                                    <option>Ahmedabad</option>
+                                    <option>Surat</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group-underlined">
+                            <select class="form-input-underlined">
+                                <option>Select Program</option>
+                                <option>Engineering</option>
+                                <option>Management</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group-underlined">
+                            <select class="form-input-underlined">
+                                <option>Select Course</option>
+                                <option>B.Tech</option>
+                                <option>MBA</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group-underlined">
+                            <select class="form-input-underlined">
+                                <option>Select Specialization</option>
+                                <option>Computer Science</option>
+                                <option>IT</option>
+                            </select>
+                        </div>
+
+                        <div class="form-check-group">
+                            <input type="checkbox" id="agree" required>
+                            <label for="agree">I agree to the Terms & Conditions</label>
+                        </div>
+
+                        <button type="submit" class="btn-submit-new">Submit Now <i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -797,8 +967,7 @@
                     </div>
                 </div>
                 <div class="steps-image">
-                    <img src="https://cdn-icons-png.flaticon.com/512/9906/9906161.png"
-                        alt="Admission Steps Illustration">
+                    <img src="assets/images/section_second.png" alt="Admission Steps Illustration">
                 </div>
             </div>
         </div>
@@ -808,8 +977,7 @@
     <section class="highlights-section">
         <div class="container highlights-wrapper">
             <div class="highlight-image-box">
-                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
-                    alt="Student">
+                <img src="assets/images/section_third.png" alt="Student">
             </div>
             <div class="highlights-content">
                 <h2>Key Highlights</h2>
@@ -896,8 +1064,7 @@
                         </div>
                     </div>
                     <div class="student-image">
-                        <img src="https://purepng.com/public/uploads/large/purepng.com-man-in-suit-standingmanpeoplepersonsuitstanding-1121525114704y6qg0.png"
-                            alt="Professional">
+                        <img src="assets/images/section_four_man.png" alt="Professional">
                     </div>
                 </div>
             </div>
@@ -910,8 +1077,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="footer-logo">
-                        <img src="https://cdn-icons-png.flaticon.com/512/2997/2997300.png" alt="Logo">
-                        LJ University
+                        <img src="assets/images/lj_logo.png" alt="Logo">
                     </div>
                     <p style="opacity:0.7; margin-bottom: 20px;">LJ Campus, LJ College Road, Off. S.G. Road, Ahmedabad -
                         382210, Gujarat, INDIA</p>
@@ -965,7 +1131,7 @@
             </div>
 
             <div class="copyright">
-                &copy; 2024 LJ University. All Rights Reserved.
+                &copy; 2025 LJ University. All Rights Reserved.
             </div>
         </div>
     </footer>
