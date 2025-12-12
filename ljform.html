@@ -371,7 +371,8 @@
         .steps-section {
             padding: 80px 0;
             text-align: center;
-            background: white;
+            background: #ffffff;
+            /* Explicitly white */
         }
 
         .section-title {
@@ -513,7 +514,8 @@
         /* --- Highlights Section --- */
         .highlights-section {
             padding: 80px 0;
-            background: #f8fafc;
+            background: #f9f9f9;
+            /* Light greyish */
         }
 
         .highlights-wrapper {
@@ -525,72 +527,120 @@
 
         .highlight-image-box {
             position: relative;
+            display: flex;
+            justify-content: center;
         }
 
         .highlight-image-box img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
+            width: 80%;
+            /* Adjusted width */
+            height: auto;
             border-radius: 200px 200px 20px 20px;
             /* Arch shape */
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            /* Removed shadow to match clean look or keep subtle if needed */
         }
 
-        .highlight-tag {
-            background: var(--accent-yellow);
-            position: absolute;
-            bottom: 30px;
-            right: -20px;
-            padding: 15px 25px;
-            border-radius: 10px;
-            font-weight: bold;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .highlights-content {
+            padding-left: 20px;
         }
 
-        .highlights-content h2 {
-            font-size: 36px;
-            color: #0ea5e9;
+        .highlights-title {
+            font-family: 'Merriweather', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #1a73e8;
             margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
         }
 
-        .highlights-content p {
-            color: #64748b;
-            margin-bottom: 30px;
-            line-height: 1.8;
+        .highlights-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 60%;
+            height: 4px;
+            background: #f97316;
+            /* Orange underline */
+            border-radius: 2px;
         }
 
-        .stats-grid {
+        .highlights-desc {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #334155;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            text-align: justify;
+        }
+
+        /* Stats Row */
+        .stats-container {
             display: flex;
-            gap: 40px;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 30px;
             margin-bottom: 30px;
         }
 
-        .stat-item {
+        .stat-box {
+            flex: 1;
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
-        .stat-icon {
-            width: 50px;
-            height: 50px;
-            background: #e0f2fe;
-            border-radius: 50%;
+        /* Vertical Divider between students and faculties */
+        .stat-box:first-child {
+            border-right: 1px solid #e2e8f0;
+            padding-right: 20px;
+        }
+
+        .stat-box:last-child {
+            padding-left: 30px;
+        }
+
+        .stat-icon-img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .stat-info h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a73e8;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .stat-info p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: #64748b;
+            margin: 0;
+        }
+
+        /* Blockchain Row */
+        .blockchain-row {
             display: flex;
-            justify-content: center;
             align-items: center;
-            color: #0ea5e9;
+            gap: 20px;
+        }
+
+        .blockchain-text h4 {
+            font-family: 'Poppins', sans-serif;
             font-size: 24px;
+            font-weight: 700;
+            color: #1a73e8;
+            margin-bottom: 5px;
         }
 
-        .stat-text strong {
-            display: block;
-            font-size: 20px;
-            color: var(--dark-blue);
-        }
-
-        .stat-text span {
-            font-size: 14px;
+        .blockchain-text p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
             color: #64748b;
         }
 
@@ -1037,32 +1087,41 @@
                 <img src="assets/images/section_third.png" alt="Student">
             </div>
             <div class="highlights-content">
-                <h2>Key Highlights</h2>
-                <p>LJ University is the premier educational institute offering diverse undergraduate, postgraduate, and
-                    diploma programs. We focus on academic excellence combined with cultural growth.</p>
+                <h2 class="highlights-title">Key Highlights</h2>
+                <p class="highlights-desc">
+                    <strong>LJ University</strong> is a research-focused teaching university offering diploma,
+                    undergraduate, postgraduate, Ph.D., certificate, and short-term professional programs.
+                    Academic delivery at <strong>LJU</strong> integrates theory with practice, encouraging
+                    problem-solving, innovation, and community engagement.
+                </p>
 
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
-                        <div class="stat-text">
-                            <strong>21,000+</strong>
-                            <span>Students</span>
+                <!-- Stats Row -->
+                <div class="stats-container">
+                    <!-- Students -->
+                    <div class="stat-box">
+                        <img src="assets/images/icon/graduate.png" alt="Student Icon" class="stat-icon-img">
+                        <div class="stat-info">
+                            <h3>21,000+</h3>
+                            <p>Students</p>
                         </div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                        <div class="stat-text">
-                            <strong>850+</strong>
-                            <span>Faculties</span>
+
+                    <!-- Faculties -->
+                    <div class="stat-box">
+                        <img src="assets/images/icon/popular_man.png" alt="Faculty Icon" class="stat-icon-img">
+                        <div class="stat-info">
+                            <h3>850+</h3>
+                            <p>Faculties</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="fas fa-link"></i></div>
-                    <div class="stat-text">
-                        <strong>Blockchain Powered</strong>
-                        <span>Result Validation System</span>
+                <!-- Blockchain Row -->
+                <div class="blockchain-row">
+                    <img src="assets/images/icon/blockchain_technology.png" alt="Blockchain" class="stat-icon-img">
+                    <div class="blockchain-text">
+                        <h4>Blockchain Powered</h4>
+                        <p>Result Validation System</p>
                     </div>
                 </div>
             </div>
