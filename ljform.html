@@ -46,21 +46,21 @@
         h3,
         h4 {
             font-family: 'Merriweather', serif;
-            color: var(--dark-blue);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
+        /* --- Header / Top Bar --- */
+        header {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 1000;
         }
 
-        /* --- Top Bar --- */
         .top-bar-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
         }
 
         .logo {
@@ -73,34 +73,58 @@
         }
 
         .logo img {
-            height: 40px;
+            height: 50px;
             margin-right: 10px;
         }
 
         .nav-links {
             display: flex;
-            align-items: center;
             gap: 25px;
+            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #64748b;
+            color: var(--dark-blue);
             font-weight: 500;
-            font-size: 14px;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-links i {
+            margin-right: 5px;
+            color: var(--primary-blue);
         }
 
         .btn-login {
-            border: 1px solid var(--primary-blue);
-            color: var(--primary-blue) !important;
-            padding: 6px 20px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
+            background: linear-gradient(90deg, #107aca, #0ea5e9);
+            color: white !important;
+            padding: 8px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: transform 0.2s;
         }
 
         .btn-login:hover {
-            background-color: var(--primary-blue);
-            color: white !important;
+            transform: translateY(-2px);
+        }
+
+        /* Hamburger Menu Icon */
+        .hamburger-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark-blue);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
 
         .notice-bar {
@@ -727,6 +751,16 @@
             color: #cbd5e1;
         }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f8fafc;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         .facilities-person-img {
             position: absolute;
             bottom: 0;
@@ -874,65 +908,220 @@
 
         /* Responsive Breakpoints */
         @media (max-width: 992px) {
+
+            /* Hero Section */
             .hero-content {
                 flex-direction: column;
+                align-items: center;
             }
 
-            .hero-text {
+            .hero-left-col {
                 width: 100%;
                 text-align: center;
-                margin-bottom: 40px;
+                padding-right: 0;
+                margin-bottom: 50px;
             }
 
-            .reg-form {
+            .hero-logo-container {
+                margin: 0 auto 30px;
+            }
+
+            .hero-headline-regular,
+            .hero-headline-bold {
+                font-size: 50px;
+                line-height: 1.2;
+            }
+
+            .hero-contact-row {
+                justify-content: center;
+                text-align: left;
+                /* Keep address text left aligned relative to icon */
+            }
+
+            .reg-form-container {
                 width: 100%;
-                max-width: 500px;
-                margin: 0 auto;
+                max-width: 450px;
             }
 
+            /* Steps Section */
             .steps-wrapper {
                 flex-direction: column;
+                gap: 50px;
             }
 
+            .steps-list {
+                padding-right: 0;
+                width: 100%;
+                max-width: 600px;
+                /* Limit width for readability */
+            }
+
+            .steps-image {
+                width: 100%;
+            }
+
+            .steps-image img {
+                max-width: 60%;
+            }
+
+            /* Highlights Section */
             .highlights-wrapper {
                 grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
             }
 
-            .facilities-layout {
+            .highlight-image-box {
+                margin-bottom: 20px;
+            }
+
+            .highlights-content {
+                padding-left: 0;
+            }
+
+            .highlights-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .stats-container {
+                justify-content: center;
+            }
+
+            .stat-box {
+                justify-content: center;
+            }
+
+            .blockchain-row {
+                justify-content: center;
+            }
+
+            /* Facilities Section */
+            .facilities-content-wrapper {
                 flex-direction: column;
             }
 
-            .student-image img {
-                display: none;
+            .facilities-grid {
+                max-width: 100%;
+                grid-template-columns: 1fr 1fr;
             }
 
-            /* Hide complicated overlapping image on mobile for now */
+            .facilities-title {
+                text-align: center;
+                display: block;
+            }
+
+            .facilities-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .facilities-person-img {
+                display: none;
+                /* Hide sticky image on tablet/mobile for cleaner layout */
+            }
+
+            /* Footer */
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
             }
         }
 
+        @media (max-width: 768px) {
+            .facilities-grid {
+                grid-template-columns: 1fr;
+                /* Stack facilities on smaller tablets */
+            }
+        }
+
         @media (max-width: 600px) {
+
+            /* Top Bar */
             .top-bar-nav {
-                flex-direction: column;
-                gap: 10px;
+                flex-direction: row;
+                /* Keep logo and hamburger side by side */
+                justify-content: space-between;
+                position: relative;
+            }
+
+            .hamburger-menu {
+                display: block;
+                /* Show hamburger on mobile */
             }
 
             .nav-links {
                 display: none;
-            }
-
-            /* Hide nav on small screens */
-            .hero-text h1 {
-                font-size: 32px;
-            }
-
-            .reg-form {
+                /* Hidden by default */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: white;
                 padding: 20px;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid #f1f5f9;
+                z-index: 999;
+                gap: 15px;
+                align-items: flex-start;
             }
 
+            .nav-links.active {
+                display: flex;
+                /* Show when active */
+            }
+
+            .nav-links a {
+                width: 100%;
+                padding: 10px 0;
+                border-bottom: 1px solid #f8fafc;
+            }
+
+            .btn-login {
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            /* Hero */
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero-headline-regular,
+            .hero-headline-bold {
+                font-size: 36px;
+                /* Smaller font for mobile */
+            }
+
+            .hero-contact-info {
+                font-size: 14px;
+            }
+
+            /* Steps */
+            .steps-image img {
+                max-width: 80%;
+            }
+
+            .step-item {
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            .step-item:not(:last-child)::before {
+                bottom: -30px;
+                /* Adjust line length */
+            }
+
+            /* Global Padding */
+            .container {
+                padding: 0 20px;
+            }
+
+            /* Footer */
             .footer-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
     </style>
@@ -952,7 +1141,10 @@
                 <div class="logo">
                     <img src="assets/images/lj_logo.png" alt="Logo">
                 </div>
-                <div class="nav-links">
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="nav-links" id="nav-links">
                     <a href="https://ljku.edu.in"><i class="fas fa-home"></i> Home</a>
                     <a href="https://ljku.edu.in/contactus"><i class="fas fa-headset"></i> Contact Support</a>
                     <a href="https://octopod.co.in/login" class="btn-login">Login</a>
@@ -1290,6 +1482,25 @@
 
     <div class="floating-btn">Enquire Now</div>
 
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+
+            // Toggle icon between bars and times (close)
+            const icon = hamburger.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
 </body>
 
 </html>
