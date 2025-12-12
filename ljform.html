@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LJ University - Registration</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-blue: #0ea5e9;
+            /* Sky blue */
+            --dark-blue: #1e3a8a;
+            /* darker navy blue */
+            --accent-yellow: #fbbf24;
+            /* Amber/Yellow */
+            --text-main: #334155;
+            --white: #ffffff;
+            --light-gray: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Merriweather', serif;
+            color: var(--dark-blue);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* --- Top Bar --- */
+        .top-bar-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--dark-blue);
+            font-family: 'Merriweather', serif;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .btn-login {
+            border: 1px solid var(--primary-blue);
+            color: var(--primary-blue) !important;
+            padding: 6px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-blue);
+            color: white !important;
+        }
+
+        .notice-bar {
+            background-color: var(--accent-yellow);
+            color: #000;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            padding: 80px 0;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 58, 138, 0.6);
+            /* Blue overlay */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .hero-text {
+            color: white;
+            width: 50%;
+            margin-top: 40px;
+        }
+
+        .hero-text h1 {
+            color: white;
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-text p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .badge-office {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Registration Form */
+        .reg-form {
+            background: linear-gradient(180deg, #67e8f9 0%, #3b82f6 100%);
+            width: 400px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .reg-form h3 {
+            font-family: 'Merriweather', serif;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .reg-form p {
+            font-size: 12px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 14px;
+            outline: none;
+            transition: background 0.3s;
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-input:focus {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group input {
+            margin-top: 3px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: white;
+            color: #2563eb;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- Steps Section --- */
+        .steps-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #0284c7;
+            /* Lighter blue for title */
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .steps-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        .steps-list {
+            flex: 1;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .step-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 20px;
+            /* Center of circle (40/2) */
+            top: 40px;
+            bottom: -20px;
+            width: 2px;
+            background: #e2e8f0;
+            z-index: 0;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #1e3a8a;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 20px;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .steps-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .steps-image img {
+            max-width: 80%;
+            height: auto;
+        }
+
+        /* --- Highlights Section --- */
+        .highlights-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .highlights-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .highlight-image-box {
+            position: relative;
+        }
+
+        .highlight-image-box img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 200px 200px 20px 20px;
+            /* Arch shape */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-tag {
+            background: var(--accent-yellow);
+            position: absolute;
+            bottom: 30px;
+            right: -20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlights-content h2 {
+            font-size: 36px;
+            color: #0ea5e9;
+            margin-bottom: 20px;
+        }
+
+        .highlights-content p {
+            color: #64748b;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .stats-grid {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: #e0f2fe;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #0ea5e9;
+            font-size: 24px;
+        }
+
+        .stat-text strong {
+            display: block;
+            font-size: 20px;
+            color: var(--dark-blue);
+        }
+
+        .stat-text span {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* --- Facilities Section --- */
+        .facilities-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .facilities-card {
+            background: linear-gradient(rgba(30, 58, 138, 0.9), rgba(30, 58, 138, 0.9)),
+                url('https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2086&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            border-radius: 30px;
+            padding: 50px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .facilities-card h2 {
+            color: white;
+            font-size: 32px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--accent-yellow);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .facilities-layout {
+            display: flex;
+            margin-top: 40px;
+        }
+
+        .facilities-list {
+            flex: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .facility-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .facility-item i {
+            color: #84cc16;
+            /* Lime green check */
+            font-size: 20px;
+            margin-top: 4px;
+        }
+
+        .facility-text h5 {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .facility-text p {
+            font-size: 12px;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        .student-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .student-image img {
+            position: absolute;
+            bottom: -50px;
+            /* Pull image down */
+            right: 0;
+            height: 400px;
+            /* Adjust as needed */
+            object-fit: contain;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 70px 0 20px;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 30px;
+            height: 2px;
+            background: var(--primary-blue);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 30px;
+        }
+
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-col a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-blue);
+            padding-left: 5px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+
+        .contact-item i {
+            color: var(--primary-blue);
+            margin-top: 3px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social-btn {
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .social-btn:hover {
+            background: var(--primary-blue);
+        }
+
+        .copyright {
+            border-top: 1px solid #1e293b;
+            text-align: center;
+            padding-top: 20px;
+            font-size: 12px;
+            opacity: 0.6;
+        }
+
+        /* Floating Contact Button */
+        .floating-btn {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            background: #0ea5e9;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px 0 0 5px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-weight: bold;
+            z-index: 100;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+
+            .hero-text {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+            .reg-form {
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .steps-wrapper {
+                flex-direction: column;
+            }
+
+            .highlights-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .facilities-layout {
+                flex-direction: column;
+            }
+
+            .student-image img {
+                display: none;
+            }
+
+            /* Hide complicated overlapping image on mobile for now */
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .top-bar-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            /* Hide nav on small screens */
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .reg-form {
+                padding: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Notice Bar -->
+    <div class="notice-bar">
+        ADMISSIONS OPEN FOR ACADEMIC YEAR 2024-25 | APPLY NOW | LIMITED SEATS AVAILABLE
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="top-bar-nav">
+                <div class="logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2997/2997300.png" alt="Logo">
+                    <!-- Placeholder Icon -->
+                    LJ University
+                </div>
+                <div class="nav-links">
+                    <a href="#"><i class="fas fa-home"></i> Home</a>
+                    <a href="#"><i class="fas fa-headset"></i> Contact Support</a>
+                    <a href="#" class="btn-login">Login</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="badge-office"><i class="fas fa-map-marker-alt"></i> Corporate Office</span>
+                <h1>Give your Career,<br>What it Deserves.</h1>
+                <p>LJ Campus, LJ College Road,</p>
+                <p>Off. S.G. Road, Ahmedabad - 382210</p>
+                <p>Gujarat, INDIA</p>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="reg-form">
+                <h3>Registration Form</h3>
+                <p>Enquire Now</p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-input" placeholder="Enter Name *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control form-input" placeholder="Enter Email Address *"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control form-input" placeholder="Enter Mobile No. *" required>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control form-input" style="color: rgba(255,255,255,0.7);">
+                            <option>Select City *</option>
+                            <option>Ahmedabad</option>
+                            <option>Surat</option>
+                            <option>Vadodara</option>
+                        </select>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="agree" required>
+                        <label for="agree">I agree to receive information regarding my submitted enquiry on LJ
+                            University</label>
+                    </div>
+                    <button type="submit" class="btn-submit">Submit Now <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Steps -->
+    <section class="steps-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Admission Steps</h2>
+                <p>Just catch your educator journey simple steps to your bright future.</p>
+            </div>
+
+            <div class="steps-wrapper">
+                <div class="steps-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Step 1: Fill the Form & Register Yourself</h4>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Step 2: Verify Email</h4>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Step 3: Fill Application Form Online</h4>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Step 4: Pay Application Fee & Submit Online</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="steps-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/9906/9906161.png"
+                        alt="Admission Steps Illustration">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Highlights -->
+    <section class="highlights-section">
+        <div class="container highlights-wrapper">
+            <div class="highlight-image-box">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
+                    alt="Student">
+            </div>
+            <div class="highlights-content">
+                <h2>Key Highlights</h2>
+                <p>LJ University is the premier educational institute offering diverse undergraduate, postgraduate, and
+                    diploma programs. We focus on academic excellence combined with cultural growth.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
+                        <div class="stat-text">
+                            <strong>21,000+</strong>
+                            <span>Students</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div class="stat-text">
+                            <strong>850+</strong>
+                            <span>Faculties</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-link"></i></div>
+                    <div class="stat-text">
+                        <strong>Blockchain Powered</strong>
+                        <span>Result Validation System</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Facilities -->
+    <section class="facilities-section">
+        <div class="container">
+            <div class="facilities-card">
+                <h2>Other Facilities:</h2>
+
+                <div class="facilities-layout">
+                    <div class="facilities-list">
+                        <div class="facility-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="facility-text">
+                                <h5>Corporate Volleyball & Basketball Leagues</h5>
+                                <p>Participation of National & International Players</p>
+                            </div>
+                        </div>
+                        <div class="facility-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="facility-text">
+                                <h5>Co-curricular & Extra Curricular Activities</h5>
+                                <p>Opportunities in 150+ activities throughout the year</p>
+                            </div>
+                        </div>
+                        <div class="facility-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="facility-text">
+                                <h5>Placements & Internships</h5>
+                                <p>High Placement & Paid Internship with 100% Student Support</p>
+                            </div>
+                        </div>
+                        <div class="facility-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="facility-text">
+                                <h5>Access to MOOC Courses</h5>
+                                <p>22,000+ Certification Based Courses from Top Universities</p>
+                            </div>
+                        </div>
+                        <div class="facility-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="facility-text">
+                                <h5>Outstanding IT Infrastructure</h5>
+                                <p>One-to-One Student-Computer ratio with high-speed internet</p>
+                            </div>
+                        </div>
+                        <div class="facility-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="facility-text">
+                                <h5>Corporate & Skill Development Training</h5>
+                                <p>360-Degree Training</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="student-image">
+                        <img src="https://purepng.com/public/uploads/large/purepng.com-man-in-suit-standingmanpeoplepersonsuitstanding-1121525114704y6qg0.png"
+                            alt="Professional">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2997/2997300.png" alt="Logo">
+                        LJ University
+                    </div>
+                    <p style="opacity:0.7; margin-bottom: 20px;">LJ Campus, LJ College Road, Off. S.G. Road, Ahmedabad -
+                        382210, Gujarat, INDIA</p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Latest News</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-angle-right"></i>
+                        <!-- Placeholder news -->
+                        <a href="#">Admissions Open 2024</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-angle-right"></i>
+                        <a href="#">Exam Schedule Announced</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Guidelines</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Anti-Ragging</a></li>
+                        <li><a href="#">Student Handbook</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@ljuniversity.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 12345 67890</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>www.ljuniversity.edu.in</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                &copy; 2024 LJ University. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-btn">Enquire Now</div>
+
+</body>
+
+</html>
