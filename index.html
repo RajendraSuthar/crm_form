@@ -5,17 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indra Ganesan College of Engineering - Registration</title>
-    <link rel="icon" type="image/png" href="assets/images/indra_g_logo.png">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap"
         rel="stylesheet">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        @font-face {
+            font-family: 'Geometr231 BT';
+            src: url('assets/fonts/Geometr231 BT Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
         :root {
             --primary-blue: #0ea5e9;
             /* Sky blue */
@@ -70,6 +77,9 @@
             font-size: 24px;
             color: var(--dark-blue);
             font-family: 'Merriweather', serif;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 8px 15px;
+            border-radius: 8px;
         }
 
         .logo img {
@@ -185,6 +195,10 @@
         .hero-logo-container img {
             height: 130px;
             /* Increased size to match the amount of text */
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .hero-text-block {
@@ -196,14 +210,16 @@
         .ht-tamil {
             font-size: 16px;
             margin-bottom: 2px;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Geometr231 BT', 'Poppins', sans-serif;
+            font-weight: bold;
             opacity: 0.9;
         }
 
         .ht-title {
             font-size: 40px;
             /* Larger title */
-            font-weight: 700;
+            font-family: 'Geometr231 BT', 'Merriweather', serif;
+            font-weight: bold;
             line-height: 1.1;
             margin-bottom: 5px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -247,7 +263,7 @@
         .hero-headline-regular {
             font-weight: 400;
             /* Regular */
-            font-size: 71px;
+            font-size: 60px;
             line-height: 95px;
             display: block;
         }
@@ -255,9 +271,25 @@
         .hero-headline-bold {
             font-weight: 700;
             /* Bold */
-            font-size: 65px;
+            font-size: 60px;
             line-height: 95px;
             display: block;
+        }
+
+        .highlight-word {
+            font-size: 1.3em;
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 0 3px 15px rgba(251, 191, 36, 0.5);
+            letter-spacing: 1px;
+        }
+
+        .highlight-goal {
+            font-size: 1.5em;
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 0 4px 20px rgba(14, 165, 233, 0.7);
+            letter-spacing: 2px;
         }
 
         .hero-contact-info {
@@ -1220,8 +1252,8 @@
                 </div>
 
                 <div class="hero-headline">
-                    <span class="hero-headline-regular">Let’s Begin your,</span>
-                    <span class="hero-headline-bold">Learning Journey.</span>
+                    <span class="hero-headline-regular">“It you have the <span class="highlight-goal">goal</span></span>
+                    <span class="hero-headline-bold">we have the <span class="highlight-word">Way</span>”</span>
                 </div>
 
                 <div class="hero-contact-info">
