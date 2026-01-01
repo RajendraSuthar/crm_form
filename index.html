@@ -723,86 +723,105 @@
             text-decoration: underline;
         }
 
-        /* --- Facilities Section --- */
-        .facilities-section {
-            padding: 80px 0 0;
-            /* No bottom padding so image sits on edge */
-            position: relative;
-            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.9)),
-                url('assets/images/section_four.png');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            min-height: 600px;
-            overflow: hidden;
-            /* Hide overflow of person image */
+        /* --- Institutions Section (Formerly Facilities) --- */
+        .institutions-section {
+            padding: 80px 0;
+            background-color: #f8fafc;
         }
 
-        .facilities-title {
+        .institutions-title {
             font-family: 'Merriweather', serif;
             font-size: 42px;
             font-weight: 700;
-            color: white;
+            color: #1e1e1e;
+            /* Dark Black/Grey */
             margin-bottom: 50px;
-            position: relative;
-            display: inline-block;
+            text-align: left;
+            /* Aligned left as per image */
         }
 
-        .facilities-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 60%;
-            height: 4px;
-            background: #f97316;
-            /* Orange underline */
-            border-radius: 2px;
-        }
-
-        .facilities-content-wrapper {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .facilities-grid {
+        .institutions-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            column-gap: 50px;
-            row-gap: 40px;
-            max-width: 70%;
-            /* Leave space for image */
-            margin-bottom: 50px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
         }
 
-        .facility-item {
+        .institution-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f1f5f9;
             display: flex;
-            gap: 15px;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 250px;
         }
 
-        .facility-icon {
-            width: 32px;
-            height: 32px;
+        .institution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .inst-logo-wrapper {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .inst-logo {
+            max-height: 100%;
+            max-width: 80%;
             object-fit: contain;
-            margin-top: 5px;
-            flex-shrink: 0;
         }
 
-        .facility-text h5 {
+        .inst-name {
             font-family: 'Poppins', sans-serif;
+            font-size: 15px;
             font-weight: 700;
-            font-size: 20px;
-            margin-bottom: 5px;
-            line-height: 1.3;
+            color: #334155;
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
 
-        .facility-text p {
+        .inst-est {
             font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            opacity: 0.8;
-            line-height: 1.5;
-            color: #cbd5e1;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .inst-est strong {
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1200px) {
+            .institutions-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .institutions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .institutions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .institutions-title {
+                text-align: center;
+                font-size: 32px;
+            }
         }
 
         body {
@@ -841,8 +860,8 @@
         /* --- Footer --- */
         footer {
             background: #0f172a;
-            color: #cbd5e1;
-            padding: 70px 0 20px;
+            color: #ffffff;
+            padding: 20px 0;
             font-size: 14px;
         }
 
@@ -937,11 +956,9 @@
         }
 
         .copyright {
-            border-top: 1px solid #1e293b;
             text-align: center;
-            padding-top: 20px;
-            font-size: 12px;
-            opacity: 0.6;
+            font-size: 14px;
+            color: #ffffff;
         }
 
         /* Responsive Breakpoints */
@@ -1042,6 +1059,71 @@
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
+            }
+        }
+
+        /* --- Placement Section --- */
+        .placement-section {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .placement-header {
+            margin-bottom: 50px;
+        }
+
+        .placement-title {
+            font-family: 'Merriweather', serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: #7d2e2e;
+            /* Red/Brown to match theme */
+            margin-bottom: 15px;
+            max-width: 700px;
+            line-height: 1.2;
+        }
+
+        .placement-desc {
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            color: #94a3b8;
+            max-width: 600px;
+        }
+
+        .placement-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            column-gap: 30px;
+            row-gap: 50px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .placement-logo {
+            max-width: 140px;
+            max-height: 60px;
+            /* Limit height to keep uniform */
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .placement-logo:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 992px) {
+            .placement-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .placement-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .placement-title {
+                font-size: 28px;
             }
         }
     </style>
@@ -1257,178 +1339,210 @@
         </div>
     </section>
 
-    <!-- Other Facilities -->
-    <section class="facilities-section">
+    <!-- Institutions Section -->
+    <section class="institutions-section">
         <div class="container">
-            <h2 class="facilities-title">Other Facilities:</h2>
+            <h2 class="institutions-title">Our Institutions</h2>
 
-            <div class="facilities-content-wrapper">
-                <div class="facilities-grid">
-                    <!-- Item 1 -->
-                    <div class="facility-item">
-                        <img src="assets/images/icon/check-mark-shields.png" class="facility-icon" alt="check">
-                        <div class="facility-text">
-                            <h5>Corporate Volleyball & Basketball Leagues</h5>
-                            <p>Participation of National & International Players</p>
-                        </div>
+            <div class="institutions-grid">
+                <!-- 1. Engineering -->
+                <div class="institution-card">
+                    <div class="inst-logo-wrapper">
+                        <img src="assets/upload/20-02-2025_03-58-44_ppg-engineering.png"
+                            alt="PPG Institute of Technology" class="inst-logo">
                     </div>
-
-                    <!-- Item 2 -->
-                    <div class="facility-item">
-                        <img src="assets/images/icon/check-mark-shields.png" class="facility-icon" alt="check">
-                        <div class="facility-text">
-                            <h5>Co-curricular & Extra Curricular Activities</h5>
-                            <p>Opportunities in 400+ Activities throughout the Year</p>
-                        </div>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div class="facility-item">
-                        <img src="assets/images/icon/check-mark-shields.png" class="facility-icon" alt="check">
-                        <div class="facility-text">
-                            <h5>Placements & Internships</h5>
-                            <p>High Placements & Paid Internships with 500+ Corporate Network</p>
-                        </div>
-                    </div>
-
-                    <!-- Item 4 -->
-                    <div class="facility-item">
-                        <img src="assets/images/icon/check-mark-shields.png" class="facility-icon" alt="check">
-                        <div class="facility-text">
-                            <h5>Access to MOOC Courses</h5>
-                            <p>32,000+ Certifications Issued from World's Renowned Universities</p>
-                        </div>
-                    </div>
-
-                    <!-- Item 5 -->
-                    <div class="facility-item">
-                        <img src="assets/images/icon/check-mark-shields.png" class="facility-icon" alt="check">
-                        <div class="facility-text">
-                            <h5>Outstanding IT Infrastructure</h5>
-                            <p>One-to-One Student-Computer Ratio with 6,000+ Workstations</p>
-                        </div>
-                    </div>
-
-                    <!-- Item 6 -->
-                    <div class="facility-item">
-                        <img src="assets/images/icon/check-mark-shields.png" class="facility-icon" alt="check">
-                        <div class="facility-text">
-                            <h5>Corporate & Skill Development Training</h5>
-                            <p>7,000+ Employees Trained</p>
-                        </div>
+                    <div>
+                        <div class="inst-name">PPG Institute of Technology</div>
+                        <div class="inst-est">Establishment: <strong>2008</strong></div>
                     </div>
                 </div>
+
+                <!-- 2. Business School -->
+                <div class="institution-card">
+                    <div class="inst-logo-wrapper">
+                        <img src="assets/upload/20-02-2025_04-00-25_ppg-business.png" alt="PPG Business School"
+                            class="inst-logo">
+                    </div>
+                    <div>
+                        <div class="inst-name">PPG Business School</div>
+                        <div class="inst-est">Establishment: <strong>2010</strong></div>
+                    </div>
+                </div>
+
+                <!-- 3. Physiotherapy -->
+                <div class="institution-card">
+                    <div class="inst-logo-wrapper">
+                        <img src="assets/upload/20-02-2025_03-56-08_ppg-physiotherapy.png"
+                            alt="PPG College of Physiotherapy" class="inst-logo">
+                    </div>
+                    <div>
+                        <div class="inst-name">PPG College of Physiotherapy</div>
+                        <div class="inst-est">Establishment: <strong>1999</strong></div>
+                    </div>
+                </div>
+
+                <!-- 4. Nursing -->
+                <div class="institution-card">
+                    <div class="inst-logo-wrapper">
+                        <img src="assets/upload/20-02-2025_03-54-59_ppg-nursing.png" alt="PPG College of Nursing"
+                            class="inst-logo">
+                    </div>
+                    <div>
+                        <div class="inst-name">PPG College of Nursing</div>
+                        <div class="inst-est">Establishment: <strong>1998</strong></div>
+                    </div>
+                </div>
+
+                <!-- 5. Allied Health -->
+                <div class="institution-card">
+                    <div class="inst-logo-wrapper">
+                        <img src="assets/upload/20-02-2025_04-02-10_ppg-allied.png"
+                            alt="PPG Institute of Allied Health Sciences" class="inst-logo">
+                    </div>
+                    <div>
+                        <div class="inst-name">PPG Institute of Allied Health Sciences</div>
+                        <div class="inst-est">Establishment: <strong>2015</strong></div>
+                    </div>
+                </div>
+
+                <!-- 6. Education -->
+                <div class="institution-card">
+                    <div class="inst-logo-wrapper">
+                        <img src="assets/upload/20-02-2025_03-58-03_ppg-education.png" alt="PPG College of Education"
+                            class="inst-logo">
+                    </div>
+                    <div>
+                        <div class="inst-name">PPG College of Education</div>
+                        <div class="inst-est">Establishment: <strong>2005</strong></div>
+                    </div>
+                </div>
+
+                <!-- 7. Pharmacy -->
+                <div class="institution-card">
+                    <div class="inst-logo-wrapper">
+                        <img src="assets/upload/20-02-2025_04-03-09_ppg-pharmacy.png" alt="PPG College of Pharmacy"
+                            class="inst-logo">
+                    </div>
+                    <div>
+                        <div class="inst-name">PPG College of Pharmacy</div>
+                        <div class="inst-est">Establishment: <strong>2018</strong></div>
+                    </div>
+                </div>
+
+                <!-- 8. Optometry -->
+                <div class="institution-card">
+                    <div class="inst-logo-wrapper">
+                        <img src="assets/upload/20-02-2025_04-09-24_ppg-optometry.png" alt="PPG Institute of Optometry"
+                            class="inst-logo">
+                    </div>
+                    <div>
+                        <div class="inst-name">PPG Institute of Optometry</div>
+                        <div class="inst-est">Establishment: <strong>2020</strong></div>
+                    </div>
+                </div>
+
+                <!-- 9. Arts & Science -->
+                <div class="institution-card">
+                    <div class="inst-logo-wrapper">
+                        <img src="assets/upload/20-02-2025_04-07-35_ppg-arts.png" alt="PPG College of Arts Science"
+                            class="inst-logo">
+                    </div>
+                    <div>
+                        <div class="inst-name">PPG College of Arts Science</div>
+                        <div class="inst-est">Establishment: <strong>2019</strong></div>
+                    </div>
+                </div>
+
+                <!-- 10. Occupational Therapy -->
+                <div class="institution-card">
+                    <div class="inst-logo-wrapper">
+                        <img src="assets/upload/1.png" alt="PPG College of Occupational Therapy" class="inst-logo">
+                    </div>
+                    <div>
+                        <div class="inst-name">PPG College of Occupational Therapy</div>
+                        <div class="inst-est">Establishment: <strong>2021</strong></div>
+                    </div>
+                </div>
+
+                <!-- 11. Ashwin Hospital -->
+                <div class="institution-card">
+                    <div class="inst-logo-wrapper">
+                        <img src="assets/upload/20-02-2025_04-10-49_aswin.png" alt="Ashwin Hospital" class="inst-logo">
+                    </div>
+                    <div>
+                        <div class="inst-name">Ashwin Hospital</div>
+                        <div class="inst-est">Establishment: <strong>1989</strong></div>
+                    </div>
+                </div>
+
+                <!-- 12. Alchemy Public School -->
+                <div class="institution-card">
+                    <div class="inst-logo-wrapper">
+                        <img src="assets/upload/20-02-2025_04-01-28_alchamy.png" alt="Alchemy Public School"
+                            class="inst-logo">
+                    </div>
+                    <div>
+                        <div class="inst-name">Alchemy Public School</div>
+                        <div class="inst-est">Establishment: <strong>2012</strong></div>
+                    </div>
+                </div>
+
             </div>
         </div>
+    </section>
 
-        <!-- Person Image Absolute -->
-        <img src="assets/images/section_four_man.png" alt="Professional" class="facilities-person-img">
+    <!-- Placement Partners Section -->
+    <section class="placement-section">
+        <div class="container">
+            <div class="placement-header">
+                <h2 class="placement-title">Trusted by 100+<br>placement partners in<br>India</h2>
+                <p class="placement-desc">
+                    Our students secure reputed placements every year with the best brands across India.
+                </p>
+            </div>
+
+            <div class="placement-grid">
+                <!-- Identified Logos -->
+                <img src="assets/company/Tata_logo.svg (2).png" alt="Tata" class="placement-logo">
+                <img src="assets/company/vecteezy_amazon-logo-png-amazon-icon-transparent-png_19766240.png" alt="Amazon"
+                    class="placement-logo">
+                <img src="assets/company/zeiss.png" alt="Zeiss" class="placement-logo">
+                <img src="assets/company/TCS Icon Logo Vector.png" alt="TCS" class="placement-logo">
+
+                <img src="assets/company/apollo.png" alt="Apollo Pharmacy" class="placement-logo">
+                <img src="assets/company/TM_Logo_Color_Pos_RGB.png" alt="Tech Mahindra" class="placement-logo">
+                <img src="assets/company/Lenskart-Logo.png" alt="Lenskart" class="placement-logo">
+                <img src="assets/company/lmw-logo.png" alt="LMW" class="placement-logo">
+
+                <img src="assets/company/hexaware.png" alt="Hexaware" class="placement-logo">
+                <img src="assets/company/garwal.png" alt="Dr Agarwals" class="placement-logo">
+                <img src="assets/company/zoho-logo-512.png" alt="Zoho" class="placement-logo">
+                <img src="assets/company/wipro_new_logo (1).png" alt="Wipro" class="placement-logo">
+
+                <img src="assets/company/aquity.png" alt="Aquity" class="placement-logo">
+                <img src="assets/company/omega.png" alt="Omega" class="placement-logo">
+                <img src="assets/company/sankara.png" alt="Sankara Eye Hospital" class="placement-logo">
+                <img src="assets/company/the eye.png" alt="The Eye" class="placement-logo">
+
+                <!-- Best Guess / Generic Filled Logos -->
+                <img src="assets/company/logo (1).png" alt="Partner" class="placement-logo">
+                <img src="assets/company/logo (1) (1).png" alt="Partner" class="placement-logo">
+                <img src="assets/company/pngegg.png" alt="IBM?" class="placement-logo">
+                <img src="assets/company/_Image_.png" alt="Partner" class="placement-logo">
+
+                <img src="assets/company/idqBwjBQXB_1740042691495.png" alt="Accenture?" class="placement-logo">
+                <img src="assets/company/1 (2).png" alt="Partner" class="placement-logo">
+                <img src="assets/company/_Linked.png" alt="Partner" class="placement-logo">
+                <img src="assets/company/pngwing.com (3) copy.png" alt="Partner" class="placement-logo">
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="footer-logo">
-                        <img src="assets/images/lj_logo.png" alt="Logo">
-                    </div>
-                    <p style="opacity:0.7; margin-bottom: 20px;">LJ Campus, LJ College Road, Off. S.G. Road, Ahmedabad -
-                        382210, Gujarat, INDIA</p>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/lokjagrutiuniversity" class="social-btn"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a href="https://x.com/lj_university" class="social-btn"><i class="fab fa-twitter"></i></a>
-                        <a href="http://youtube.com/channel/UC6cUvf8NQf36hIMGj6J1DTg/featured" class="social-btn"><i
-                                class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/lj_university/" class="social-btn"><i
-                                class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-col">
-                    <h3>Latest News</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-angle-right"></i>
-                        <!-- Placeholder news -->
-                        <a
-                            href="https://ljku.edu.in/university-news/international-conference-on-multidisciplinary-dialogue-on-city-identity-planning-and-design-of-urban-dimensions-74">International
-                            Conference</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-angle-right"></i>
-                        <a href="https://ljku.edu.in/university-news/lj-innovation-village-2026-73">LJ Innovation
-                            Village 20</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-angle-right"></i>
-                        <a
-                            href="https://ljku.edu.in/university-news/international-conference-on-emerging-trends-in-management-practices-76">INTERNATIONAL
-                            CONFERENCE</a>
-                    </div>
-                </div>
-
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-angle-right" style="color: var(--primary-blue);"></i>
-                            <a href="https://ljku.edu.in/public-holiday">Holidays</a>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-angle-right" style="color: var(--primary-blue);"></i>
-                            <a href="https://ljku.edu.in/scholorship">Scholarship</a>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-angle-right" style="color: var(--primary-blue);"></i>
-                            <a href="#">Academic Calendar</a>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-angle-right" style="color: var(--primary-blue);"></i>
-                            <a href="https://ljku.edu.in/web/content/40907">UGC Proforma / Mandatory disclosure</a>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-angle-right" style="color: var(--primary-blue);"></i>
-                            <a href="#">Library</a>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-angle-right" style="color: var(--primary-blue);"></i>
-                            <a href="#">Software for Differently Abled</a>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-angle-right" style="color: var(--primary-blue);"></i>
-                            <a href="#">Radio LJ</a>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-angle-right" style="color: var(--primary-blue);"></i>
-                            <a href="#">Feedbacks</a>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-angle-right" style="color: var(--primary-blue);"></i>
-                            <a href="#">Student Centric Methods</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h3>Contact Us</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:info@ljku.edu.in">info@ljku.edu.in</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:18001210082">18001210082</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <a href="https://wa.me/916357000987" target="_blank">WhatsApp</a>
-                    </div>
-                </div>
-            </div>
-
             <div class="copyright">
-                &copy; 2025 LJ University. All Rights Reserved.
+                Copyright &copy; 2026 PPG Group of Institutions. All Rights Reserved.
             </div>
         </div>
     </footer>
